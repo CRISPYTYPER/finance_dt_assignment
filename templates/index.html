@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>연금 계산기</title>
+    <!-- Bootstrap CSS 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">연금 계산기</h1>
+        <form method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="dob">생년월일</label>
+                    <input type="date" class="form-control" id="dob" name="dob" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="retirement_age">은퇴 나이</label>
+                    <input type="number" class="form-control" id="retirement_age" name="retirement_age" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="life_expectancy">예상 수명</label>
+                    <input type="number" class="form-control" id="life_expectancy" name="life_expectancy" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="current_assets">현재 금융 자산</label>
+                    <input type="number" class="form-control" id="current_assets" name="current_assets" step="any" required lang="en">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="current_salary">현재 월급</label>
+                    <input type="number" class="form-control" id="current_salary" name="current_salary" step="any" required lang="en">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="monthly_investment">월 투자 금액</label>
+                    <input type="number" class="form-control" id="monthly_investment" name="monthly_investment" step="any" required lang="en">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="required_pension">필요한 월간 연금액(현재 기준)</label>
+                <input type="number" class="form-control" id="required_pension" name="required_pension" step="any" required lang="en">
+            </div>
+            <div class="form-group">
+                <label for="salary_growth_rate">예상 임금 상승률(%)</label>
+                <input type="number" class="form-control" id="salary_growth_rate" name="salary_growth_rate" step="any" required lang="en">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="continue_investment" name="continue_investment">
+                <label class="form-check-label" for="continue_investment">은퇴 이후 투자를 계속 할지 여부</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">계산하기</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS 및 의존성 추가 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</body>
+</html>

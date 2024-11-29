@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>계산 결과</title>
+    <!-- Bootstrap CSS 추가 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">나이별 연금 계산 표</h1>
+        <p class="text-center">목표를 달성하기 위한 연간 수익률: <strong>{{ required_return_rate }}%</strong></p>
+        {% if data %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th>나이</th>
+                        <th>연도</th>
+                        <th>금융 자산 (연초)</th>
+                        <th>연 투자</th>
+                        <th>투자 손익</th>
+                        <th>인출 금액</th>
+                        <th>연금 소득세</th>
+                        <th>세후 인출 금액</th>
+                        <th>연말 금융 자산</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <td>{{ row.age }}</td>
+                        <td>{{ row.year }}</td>
+                        <td>{{ "{:,}".format(row.assets) }}</td>
+                        <td>{{ "{:,}".format(row.investment) }}</td>
+                        <td>{{ "{:,}".format(row.profit) }}</td>
+                        <td>{{ "{:,}".format(row.withdrawal) }}</td>
+                        <td>{{ "{:,}".format(row.tax) }}</td>
+                        <td>{{ "{:,}".format(row.after_tax_withdrawal) }}</td>
+                        <td>{{ "{:,}".format(row.end_assets) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <p class="text-center text-danger">목표를 달성할 수 있는 수익률을 찾지 못했습니다.</p>
+        {% endif %}
+        <div class="text-center mt-3 mb-5">
+            <a href="/" class="btn btn-secondary mt-3">다시 계산하기</a>
+        </div>
+    </div>
+    <!-- Bootstrap JS 및 의존성 추가 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</body>
+</html>
